@@ -3,7 +3,7 @@ let untyped = "";
 let typed = "";
 let score = 0;
 let lettercount = 0;
-
+let timeup = "";
 
 // 必要なHTML要素の取得
 const untypedfield = document.getElementById("untyped");
@@ -12,7 +12,7 @@ const wrap = document.getElementById("wrap");
 const start = document.getElementById("start");
 const count = document.getElementById("count");
 const letterCount = document.getElementById("lettercount");
-
+const timeUp = document.getElementById("timeup");
 
 // 複数のテキストを格納する配列
 const textLists = [
@@ -53,10 +53,6 @@ const createText = () => {
 const keyPress = e => {
 
    
-// タイプ数を表示する
-     lettercount++;
-     letterCount.textContent = lettercount;
-
 
 
     // 誤タイプの場合
@@ -72,6 +68,11 @@ const keyPress = e => {
     // 正タイプの場合
     // スコアのインクリメント
     score++;
+    
+    // タイプ数を表示する
+    lettercount++;
+    letterCount.textContent = lettercount;
+
     wrap.classList.remove("mistyped");
     typed += untyped.substring(0, 1);
     untyped = untyped.substring(1);
@@ -155,6 +156,13 @@ start.addEventListener("click", () => {
       // キーボードのイベント処理
       document.addEventListener("keypress", keyPress);
 
-});
-    
+      // タイマーが０になったら「タイムアップ！」表示
+   const gameover = () => {
+      timer();
+      timeUp.textContent = "タイムアップ！";
+      setTimeout(() => {
+         result;
+      }, 100)
+   }
+   });
 untypedfield.textContent = "スタートボタンで開始";
