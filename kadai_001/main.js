@@ -53,7 +53,7 @@ const keyPress = e => {
 let lettercount = 0;
 const letterCount = document.getElementById("lettercount");
 window.addEventListener("keypress",  e => {
-  if (e.key === lettercount) {
+  if (e.key !== lettercount) {
      lettercount++;
      letterCount.textContent = lettercount;
   }
