@@ -2,6 +2,8 @@
 let untyped = "";
 let typed = "";
 let score = 0;
+let lettercount = 0;
+
 
 // 必要なHTML要素の取得
 const untypedfield = document.getElementById("untyped");
@@ -9,6 +11,8 @@ const typedfield = document.getElementById("typed");
 const wrap = document.getElementById("wrap");
 const start = document.getElementById("start");
 const count = document.getElementById("count");
+const letterCount = document.getElementById("lettercount");
+
 
 // 複数のテキストを格納する配列
 const textLists = [
@@ -50,14 +54,8 @@ const keyPress = e => {
 
    
 // タイプ数を表示する
-let lettercount = 0;
-const letterCount = document.getElementById("lettercount");
-window.addEventListener("keypress",  e => {
-  if (e.key !== lettercount) {
      lettercount++;
      letterCount.textContent = lettercount;
-  }
-});
 
 
 
@@ -74,13 +72,11 @@ window.addEventListener("keypress",  e => {
     // 正タイプの場合
     // スコアのインクリメント
     score++;
-    
     wrap.classList.remove("mistyped");
     typed += untyped.substring(0, 1);
     untyped = untyped.substring(1);
     typedfield.textContent = typed;
     untypedfield.textContent = untyped;
-
     
 
   
